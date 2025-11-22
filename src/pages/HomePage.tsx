@@ -113,6 +113,26 @@ export const HomePage = () => {
               Genereer fobie →
             </div>
           </Link>
+
+          {/* Excuus Ex Machina Card */}
+          <Link
+            to="/excuses"
+            className="group bg-gradient-to-br from-amber-800 to-yellow-900 p-8 rounded-lg border-4 border-amber-700 hover:border-amber-500 transition-all hover:scale-105 shadow-xl"
+          >
+            <div className="text-6xl mb-4">🙏</div>
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Excuus Ex Machina
+            </h2>
+            <p className="text-amber-100 mb-4">
+              Genereer creatieve, gedetailleerde excuses voor elke situatie met een keten van onwaarschijnlijke gebeurtenissen.
+            </p>
+            <div className="text-amber-200 text-sm italic">
+              "Het spijt me enorm, maar een loslopende therapiegeit at mijn sleutels..."
+            </div>
+            <div className="mt-6 text-white font-bold group-hover:translate-x-2 transition-transform">
+              Genereer excuus →
+            </div>
+          </Link>
         </div>
 
         <footer className="text-center mt-20 text-ink-faded text-sm">

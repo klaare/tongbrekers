@@ -88,6 +88,20 @@ export const Navbar = () => {
             >
               😰 Fobieën
             </Link>
+            <Link
+              to="/excuses"
+              className={`
+                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                border-2 transition-all
+                ${
+                  isActive('/excuses')
+                    ? 'bg-amber-600 text-white border-amber-600'
+                    : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                }
+              `}
+            >
+              🙏 Excuses
+            </Link>
           </div>
         </div>
       </div>

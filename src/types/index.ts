@@ -17,6 +17,14 @@ export interface Fobie {
   created_at: string;
 }
 
+export interface Excuus {
+  id: string;
+  situatie: string;
+  excuus: string;
+  lengte: 'kort' | 'normaal' | 'episch';
+  created_at: string;
+}
+
 export interface ApiKeyConfig {
   key: string | null;
   isValid: boolean;

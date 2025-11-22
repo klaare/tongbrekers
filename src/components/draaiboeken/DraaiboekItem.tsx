@@ -2,6 +2,7 @@ import type { Draaiboek } from '../../types';
 import { useTTS } from '../../hooks/useTTS';
 import { useDraaiboekShare } from '../../hooks/useDraaiboekShare';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 interface DraaiboekItemProps {
   draaiboek: Draaiboek;
@@ -87,8 +88,10 @@ export const DraaiboekItem = ({ draaiboek, onDelete }: DraaiboekItemProps) => {
             {graadInfo.label}
           </span>
         </div>
-        <div className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap font-mono">
-          {draaiboek.draaiboek}
+        <div className="text-slate-300 text-sm leading-relaxed prose prose-sm prose-invert max-w-none
+          prose-strong:text-slate-100 prose-strong:font-bold
+          prose-p:my-2 prose-p:text-slate-300">
+          <ReactMarkdown>{draaiboek.draaiboek}</ReactMarkdown>
         </div>
       </div>
 

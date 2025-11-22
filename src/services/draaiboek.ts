@@ -70,8 +70,10 @@ Pas de intensiteit van de mislukking aan op basis van de gekozen moeilijkheidsgr
 - Voorbeelden: autoriteiten betrokken, structurele schade, onherstelbare situaties
 
 ## RESULTAAT
-Lever **uitsluitend het stappenplan**, zonder inleiding, conclusie of meta-commentaar.
-Nummer elke stap duidelijk (Stap 1, Stap 2, etc.) en houd de toon zakelijk en serieus.`;
+Lever **uitsluitend het stappenplan in Markdown-formaat**, zonder inleiding, conclusie of meta-commentaar.
+- Gebruik **bold** voor "Stap 1:", "Stap 2:", etc.
+- Nummer elke stap duidelijk en houd de toon zakelijk en serieus
+- Output moet valid Markdown zijn voor rendering`;
 
 export const draaiboekService = {
   validateApiKey: (apiKey: string): boolean => {

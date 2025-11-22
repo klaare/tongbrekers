@@ -1,44 +1,44 @@
-import type { Tongbreker } from '../types';
+import type { Condoleance } from '../types';
 
 const STORAGE_KEYS = {
-  TONGBREKERS: 'tering_tongbrekers_history',
+  CONDOLEANCES: 'curieuze_condoleances_history',
   API_KEY: 'gemini_api_key',
   MAX_ITEMS: 50,
 } as const;
 
 export const storage = {
-  // Tongbrekers
-  getTongbrekers: (): Tongbreker[] => {
+  // Condoleances
+  getCondoleances: (): Condoleance[] => {
     try {
-      const data = localStorage.getItem(STORAGE_KEYS.TONGBREKERS);
+      const data = localStorage.getItem(STORAGE_KEYS.CONDOLEANCES);
       return data ? JSON.parse(data) : [];
     } catch (error) {
-      console.error('Error loading tongbrekers:', error);
+      console.error('Error loading condoleances:', error);
       return [];
     }
   },
 
-  saveTongbreker: (tongbreker: Tongbreker): boolean => {
+  saveCondoleance: (condoleance: Condoleance): boolean => {
     try {
-      const history = storage.getTongbrekers();
-      history.unshift(tongbreker);
+      const history = storage.getCondoleances();
+      history.unshift(condoleance);
       const trimmed = history.slice(0, STORAGE_KEYS.MAX_ITEMS);
-      localStorage.setItem(STORAGE_KEYS.TONGBREKERS, JSON.stringify(trimmed));
+      localStorage.setItem(STORAGE_KEYS.CONDOLEANCES, JSON.stringify(trimmed));
       return true;
     } catch (error) {
-      console.error('Error saving tongbreker:', error);
+      console.error('Error saving condoleance:', error);
       return false;
     }
   },
 
-  deleteTongbreker: (id: string): boolean => {
+  deleteCondoleance: (id: string): boolean => {
     try {
-      const history = storage.getTongbrekers();
+      const history = storage.getCondoleances();
       const filtered = history.filter((t) => t.id !== id);
-      localStorage.setItem(STORAGE_KEYS.TONGBREKERS, JSON.stringify(filtered));
+      localStorage.setItem(STORAGE_KEYS.CONDOLEANCES, JSON.stringify(filtered));
       return true;
     } catch (error) {
-      console.error('Error deleting tongbreker:', error);
+      console.error('Error deleting condoleance:', error);
       return false;
     }
   },

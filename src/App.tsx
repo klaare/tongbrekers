@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import type { Tongbreker } from './types';
+import type { Condoleance } from './types';
 import { generateId } from './utils/storage';
 import { geminiService } from './services/gemini';
 import { ApiKeyInput } from './components/ApiKeyInput';
 import { GenerateButton } from './components/GenerateButton';
-import { TongbrekerList } from './components/TongbrekerList';
+import { CondoleanceList } from './components/CondoleanceList';
 import { Notification } from './components/Notification';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import { getTongbrekerFromUrl, clearUrlParams } from './utils/url';
+import { getCondoleanceFromUrl, clearUrlParams } from './utils/url';
 
 function App() {
-  const [tongbrekers, setTongbrekers] = useLocalStorage<Tongbreker[]>(
-    'tering_tongbrekers_history',
+  const [condoleances, setCondoleances] = useLocalStorage<Condoleance[]>(
+    'tering_condoleances_history',
     []
   );
   const [apiKey, setApiKey] = useLocalStorage<string | null>('gemini_api_key', null);
@@ -28,16 +28,16 @@ function App() {
 
   // Check for shared tongbreker in URL on mount
   useEffect(() => {
-    const sharedTongbreker = getTongbrekerFromUrl();
-    if (sharedTongbreker) {
+    const sharedCondoleance = getCondoleanceFromUrl();
+    if (sharedCondoleance) {
       // Add to the beginning of the list
-      setTongbrekers((prev) => {
+      setCondoleances((prev) => {
         // Check if it's already in the list (avoid duplicates)
-        const exists = prev.some((t) => t.text === sharedTongbreker.text);
+        const exists = prev.some((t) => t.text === sharedCondoleance.text);
         if (exists) {
           return prev;
         }
-        return [sharedTongbreker, ...prev].slice(0, 50);
+        return [sharedCondoleance, ...prev].slice(0, 50);
       });
       // Clear URL params for clean URL
       clearUrlParams();
@@ -66,16 +66,16 @@ function App() {
     setIsGenerating(true);
 
     try {
-      const text = await geminiService.generateTongbreker(activeApiKey);
+      const text = await geminiService.generateCondoleance(activeApiKey);
 
-      const tongbreker: Tongbreker = {
+      const tongbreker: Condoleance = {
         id: generateId(),
         text,
         created_at: new Date().toISOString(),
       };
 
-      setTongbrekers((prev) => [tongbreker, ...prev].slice(0, 50));
-      showNotification('Tongbreker gegenereerd! 🔥', 'success');
+      setCondoleances((prev) => [tongbreker, ...prev].slice(0, 50));
+      showNotification('Condoleance gegenereerd! 🔥', 'success');
     } catch (error: any) {
       console.error('Generation error:', error);
 
@@ -105,7 +105,7 @@ function App() {
         {/* Header */}
         <header className="text-center mb-8 md:mb-12">
           <h1 className="text-4xl md:text-6xl font-black mb-2 bg-gradient-to-r from-primary to-orange-500 bg-clip-text text-transparent">
-            🔥 Tering Tongbrekers 🔥
+            🔥 Tering Condoleances 🔥
           </h1>
           <p className="text-gray-400 uppercase tracking-widest text-sm">
             AI-gedreven tongbreker chaos
@@ -122,12 +122,12 @@ function App() {
           {/* API Key Input */}
           {showApiKeyInput && <ApiKeyInput onSave={handleSaveApiKey} />}
 
-          {/* Recent Tongbrekers */}
+          {/* Recent Condoleances */}
           <section>
             <h2 className="text-center text-gray-400 tracking-[0.3em] font-semibold mb-6">
               — RECENT —
             </h2>
-            <TongbrekerList tongbrekers={tongbrekers} />
+            <CondoleanceList condoleances={condoleances} />
           </section>
         </main>
 

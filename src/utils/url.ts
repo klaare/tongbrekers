@@ -1,53 +1,53 @@
-import type { Tongbreker } from '../types';
+import type { Condoleance } from '../types';
 import { generateId } from './storage';
 
 /**
- * Encode a tongbreker into a URL-safe base64 string
+ * Encode a condoleance into a URL-safe base64 string
  */
-export function encodeTongbreker(text: string): string {
+export function encodeCondoleance(text: string): string {
   try {
     // Use encodeURIComponent for URL safety
     return encodeURIComponent(btoa(encodeURIComponent(text)));
   } catch (error) {
-    console.error('Error encoding tongbreker:', error);
+    console.error('Error encoding condoleance:', error);
     return '';
   }
 }
 
 /**
- * Decode a tongbreker from a URL-safe base64 string
+ * Decode a condoleance from a URL-safe base64 string
  */
-export function decodeTongbreker(encoded: string): string | null {
+export function decodeCondoleance(encoded: string): string | null {
   try {
     const decoded = decodeURIComponent(atob(decodeURIComponent(encoded)));
     return decoded;
   } catch (error) {
-    console.error('Error decoding tongbreker:', error);
+    console.error('Error decoding condoleance:', error);
     return null;
   }
 }
 
 /**
- * Create a shareable URL with a tongbreker
+ * Create a shareable URL with a condoleance
  */
-export function createShareUrl(tongbreker: Tongbreker): string {
+export function createShareUrl(condoleance: Condoleance): string {
   const baseUrl = window.location.origin + window.location.pathname;
-  const encoded = encodeTongbreker(tongbreker.text);
-  return `${baseUrl}?t=${encoded}`;
+  const encoded = encodeCondoleance(condoleance.text);
+  return `${baseUrl}?c=${encoded}`;
 }
 
 /**
- * Get tongbreker from URL query parameter
+ * Get condoleance from URL query parameter
  */
-export function getTongbrekerFromUrl(): Tongbreker | null {
+export function getCondoleanceFromUrl(): Condoleance | null {
   const params = new URLSearchParams(window.location.search);
-  const encoded = params.get('t');
+  const encoded = params.get('c');
 
   if (!encoded) {
     return null;
   }
 
-  const text = decodeTongbreker(encoded);
+  const text = decodeCondoleance(encoded);
   if (!text) {
     return null;
   }

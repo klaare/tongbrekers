@@ -1,4 +1,4 @@
-export interface Tongbreker {
+export interface Condoleance {
   id: string;
   text: string;
   created_at: string;

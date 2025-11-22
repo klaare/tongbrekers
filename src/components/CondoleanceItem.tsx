@@ -1,22 +1,22 @@
-import type { Tongbreker } from '../types';
+import type { Condoleance } from '../types';
 import { useTTS } from '../hooks/useTTS';
 import { useShare } from '../hooks/useShare';
 import { useState } from 'react';
 
-interface TongbrekerItemProps {
-  tongbreker: Tongbreker;
+interface CondoleanceItemProps {
+  condoleance: Condoleance;
 }
 
-export const TongbrekerItem = ({ tongbreker }: TongbrekerItemProps) => {
+export const CondoleanceItem = ({ condoleance }: CondoleanceItemProps) => {
   const { speak, currentId, isSupported: ttsSupported } = useTTS();
   const { share, isSupported: shareSupported } = useShare();
   const [notification, setNotification] = useState('');
 
-  const isPlaying = currentId === tongbreker.id;
+  const isPlaying = currentId === condoleance.id;
 
   const handlePlay = async () => {
     try {
-      await speak(tongbreker.text, tongbreker.id);
+      await speak(condoleance.text, condoleance.id);
     } catch (error) {
       console.error('TTS error:', error);
       showNotification('❌ Audio afspelen mislukt');
@@ -24,7 +24,7 @@ export const TongbrekerItem = ({ tongbreker }: TongbrekerItemProps) => {
   };
 
   const handleShare = async () => {
-    const result = await share(tongbreker);
+    const result = await share(condoleance);
     if (result.success) {
       if (result.method === 'copy') {
         showNotification('📋 Gekopieerd naar klembord!');
@@ -60,9 +60,9 @@ export const TongbrekerItem = ({ tongbreker }: TongbrekerItemProps) => {
 
   return (
     <div className="bg-background-surface rounded-xl p-6 shadow-xl hover:bg-background-hover hover:-translate-y-1 transition-all duration-300 animate-slide-in relative">
-      <p className="text-white text-lg leading-relaxed mb-4">{tongbreker.text}</p>
+      <p className="text-white text-lg leading-relaxed mb-4">{condoleance.text}</p>
       <div className="flex items-center justify-between">
-        <span className="text-gray-400 text-sm">{formatDate(tongbreker.created_at)}</span>
+        <span className="text-gray-400 text-sm">{formatDate(condoleance.created_at)}</span>
         <div className="flex gap-2">
           <button
             onClick={handlePlay}

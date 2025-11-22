@@ -24,7 +24,7 @@ export const GenerateButton = ({ onClick, isGenerating }: GenerateButtonProps) =
       {isGenerating ? (
         <span className="animate-pulse-slow">🔄 Taal aan het verknopen...</span>
       ) : (
-        <span>🔥 Genereer Tering Tongbreker 🔥</span>
+        <span>🔥 Genereer Tering Condoleance 🔥</span>
       )}
     </button>
   );

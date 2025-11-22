@@ -1,8 +1,8 @@
 {
-  "name": "tering-tongbrekers",
+  "name": "curieuze-condoleances",
   "private": true,
   "version": "1.0.0",
-  "description": "AI-gedreven Nederlandse tongbreker generator met Gemini AI",
+  "description": "AI-gedreven generator voor satirische en absurde condoleanceberichten",
   "author": "",
   "license": "MIT",
   "type": "module",

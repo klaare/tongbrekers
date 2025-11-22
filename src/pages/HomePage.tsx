@@ -73,6 +73,26 @@ export const HomePage = () => {
               Bekijk tegels →
             </div>
           </Link>
+
+          {/* Kansloze CV Card */}
+          <Link
+            to="/kansloze-cv"
+            className="group bg-gradient-to-br from-purple-800 to-purple-900 p-8 rounded-lg border-4 border-purple-700 hover:border-purple-500 transition-all hover:scale-105 shadow-xl"
+          >
+            <div className="text-6xl mb-4">📄</div>
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Kansloze CV's
+            </h2>
+            <p className="text-purple-100 mb-4">
+              Absurd slechte curriculum vitae's vol met incompetentie, irrelevante vaardigheden en chaotische werkervaring.
+            </p>
+            <div className="text-purple-200 text-sm italic">
+              "Professioneel Bankzitter met 5 jaar ervaring in niets doen..."
+            </div>
+            <div className="mt-6 text-white font-bold group-hover:translate-x-2 transition-transform">
+              Genereer kansloos CV →
+            </div>
+          </Link>
         </div>
 
         <footer className="text-center mt-20 text-ink-faded text-sm">

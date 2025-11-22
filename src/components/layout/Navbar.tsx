@@ -17,7 +17,7 @@ export const Navbar = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             <Link
               to="/tongbrekers"
               className={`
@@ -59,6 +59,20 @@ export const Navbar = () => {
               `}
             >
               🏺 Spreuken
+            </Link>
+            <Link
+              to="/kansloze-cv"
+              className={`
+                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                border-2 transition-all
+                ${
+                  isActive('/kansloze-cv')
+                    ? 'bg-purple-600 text-white border-purple-600'
+                    : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                }
+              `}
+            >
+              📄 Kansloze CV
             </Link>
           </div>
         </div>

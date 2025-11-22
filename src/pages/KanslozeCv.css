@@ -1,0 +1,544 @@
+/* Container */
+.kansloze-cv-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header */
+.kansloze-cv-header {
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.kansloze-cv-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #6366f1;
+  font-weight: 700;
+}
+
+.kansloze-cv-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* API Key Section */
+.kansloze-cv-api-key-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.kansloze-cv-api-key-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.kansloze-cv-api-key-section p {
+  margin-bottom: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.kansloze-cv-api-info {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: #94a3b8;
+}
+
+.kansloze-cv-api-info a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+.kansloze-cv-api-info a:hover {
+  text-decoration: underline;
+}
+
+.kansloze-cv-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.kansloze-cv-input-group input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.kansloze-cv-input-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Buttons */
+.kansloze-cv-btn-primary,
+.kansloze-cv-btn-secondary,
+.kansloze-cv-btn-link {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+}
+
+.kansloze-cv-btn-primary {
+  background: #6366f1;
+  color: white;
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.kansloze-cv-btn-primary:hover:not(:disabled) {
+  background: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.kansloze-cv-btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.kansloze-cv-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kansloze-cv-btn-secondary {
+  background: #8b5cf6;
+  color: white;
+  white-space: nowrap;
+}
+
+.kansloze-cv-btn-secondary:hover {
+  background: #7c3aed;
+}
+
+.kansloze-cv-btn-link {
+  background: transparent;
+  color: #64748b;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.kansloze-cv-btn-link:hover {
+  color: #ef4444;
+}
+
+.kansloze-cv-btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  margin: 0.25rem;
+}
+
+/* Generate Section */
+.kansloze-cv-generate-section {
+  margin-bottom: 3rem;
+}
+
+/* Loader */
+.kansloze-cv-loader {
+  text-align: center;
+  padding: 2rem;
+}
+
+.kansloze-cv-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: kansloze-cv-spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes kansloze-cv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.kansloze-cv-loader p {
+  color: #64748b;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* CV List */
+.kansloze-cv-cv-list {
+  margin-top: 3rem;
+}
+
+.kansloze-cv-cv-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.kansloze-cv-empty-message {
+  text-align: center;
+  color: #64748b;
+  padding: 3rem 1rem;
+  font-style: italic;
+}
+
+/* CV Card */
+.kansloze-cv-cv-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  animation: kansloze-cv-fadeIn 0.5s ease-out;
+}
+
+.kansloze-cv-cv-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kansloze-cv-cv-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+}
+
+.kansloze-cv-cv-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #6366f1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.kansloze-cv-shared-badge {
+  font-size: 0.75rem;
+  background: #10b981;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.kansloze-cv-cv-card-toggle {
+  font-size: 1.25rem;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.kansloze-cv-cv-card.expanded .kansloze-cv-cv-card-toggle {
+  transform: rotate(180deg);
+}
+
+.kansloze-cv-cv-card-meta {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.kansloze-cv-cv-content {
+  display: none;
+  padding: 2rem 2.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  max-height: 700px;
+  overflow-y: auto;
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.kansloze-cv-cv-card.expanded .kansloze-cv-cv-content {
+  display: block;
+}
+
+/* Professional CV Template Styling */
+.kansloze-cv-cv-template {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.6;
+}
+
+/* CV Headers */
+.kansloze-cv-cv-template h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #6366f1;
+  letter-spacing: 0.5px;
+}
+
+.kansloze-cv-cv-template h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4f46e5;
+  margin: 1.5rem 0 0.75rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kansloze-cv-cv-template h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* CV Paragraphs */
+.kansloze-cv-cv-template p {
+  margin: 0.5rem 0;
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+/* Strong text (job titles, etc) */
+.kansloze-cv-cv-template strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Emphasized text (dates, institutions) */
+.kansloze-cv-cv-template em {
+  color: #64748b;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Lists */
+.kansloze-cv-cv-template ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.5rem 0;
+}
+
+.kansloze-cv-cv-template li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.kansloze-cv-cv-template li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #6366f1;
+  font-weight: bold;
+}
+
+/* Horizontal rules */
+.kansloze-cv-cv-template hr {
+  border: none;
+  border-top: 1px solid #cbd5e1;
+  margin: 1.5rem 0;
+}
+
+/* Links */
+.kansloze-cv-cv-template a {
+  color: #6366f1;
+  text-decoration: none;
+  border-bottom: 1px dotted #6366f1;
+}
+
+.kansloze-cv-cv-template a:hover {
+  color: #4f46e5;
+  border-bottom-style: solid;
+}
+
+/* Code/monospace (for email, phone) */
+.kansloze-cv-cv-template code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  background: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #475569;
+}
+
+/* Blockquotes (if used for profile summary) */
+.kansloze-cv-cv-template blockquote {
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+.kansloze-cv-cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Footer */
+.kansloze-cv-footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  color: #64748b;
+}
+
+/* Animations */
+@keyframes kansloze-cv-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar Styling */
+.kansloze-cv-cv-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.kansloze-cv-cv-content::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.kansloze-cv-cv-content::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.kansloze-cv-cv-content::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .kansloze-cv-container {
+    padding: 1.5rem;
+  }
+
+  .kansloze-cv-header h1 {
+    font-size: 2rem;
+  }
+
+  .kansloze-cv-subtitle {
+    font-size: 1rem;
+  }
+
+  .kansloze-cv-btn-primary {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .kansloze-cv-container {
+    padding: 2rem;
+  }
+
+  .kansloze-cv-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .kansloze-cv-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .kansloze-cv-btn-primary {
+    font-size: 1.5rem;
+    padding: 1.25rem 2.5rem;
+  }
+
+  .kansloze-cv-input-group {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .kansloze-cv-cv-card-title {
+    font-size: 1.25rem;
+  }
+
+  .kansloze-cv-cv-content {
+    padding: 2.5rem 3rem;
+  }
+
+  .kansloze-cv-cv-template h1 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Mobile CV Template Adjustments */
+@media (max-width: 640px) {
+  .kansloze-cv-cv-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .kansloze-cv-cv-template h1 {
+    font-size: 1.5rem;
+  }
+
+  .kansloze-cv-cv-template h2 {
+    font-size: 1.1rem;
+  }
+
+  .kansloze-cv-cv-template h3 {
+    font-size: 1rem;
+  }
+
+  .kansloze-cv-cv-template p,
+  .kansloze-cv-cv-template li {
+    font-size: 0.9rem;
+  }
+}
+
+/* Print Styles for CV */
+@media print {
+  .kansloze-cv-cv-card-header,
+  .kansloze-cv-cv-actions,
+  .kansloze-cv-header,
+  .kansloze-cv-footer,
+  .kansloze-cv-generate-section {
+    display: none !important;
+  }
+
+  .kansloze-cv-cv-content {
+    display: block !important;
+    max-height: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+
+  .kansloze-cv-cv-card {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+}

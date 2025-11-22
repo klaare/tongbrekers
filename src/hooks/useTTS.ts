@@ -7,6 +7,56 @@ export const useTTS = () => {
 
   const isSupported = 'speechSynthesis' in window;
 
+  /**
+   * Get the best available Dutch voice
+   * Waits for voices to load if necessary
+   */
+  const getDutchVoice = useCallback(async (): Promise<SpeechSynthesisVoice | null> => {
+    if (!isSupported) return null;
+
+    const synth = window.speechSynthesis;
+    let voices = synth.getVoices();
+
+    // If voices aren't loaded yet, wait for them
+    if (voices.length === 0) {
+      await new Promise<void>((resolve) => {
+        synth.onvoiceschanged = () => {
+          resolve();
+        };
+        // Timeout after 1 second if voices don't load
+        setTimeout(() => resolve(), 1000);
+      });
+      voices = synth.getVoices();
+    }
+
+    // Priority order for Dutch voices
+    const dutchVariants = [
+      'nl-NL', // Netherlands Dutch (preferred)
+      'nl-BE', // Belgian Dutch
+      'nl',    // Generic Dutch
+    ];
+
+    // Try to find a Dutch voice in priority order
+    for (const variant of dutchVariants) {
+      const voice = voices.find((v) => v.lang === variant);
+      if (voice) {
+        console.log('🇳🇱 Using Dutch voice:', voice.name, voice.lang);
+        return voice;
+      }
+    }
+
+    // Fallback: find any voice that starts with 'nl'
+    const anyDutchVoice = voices.find((v) => v.lang.startsWith('nl'));
+    if (anyDutchVoice) {
+      console.log('🇳🇱 Using Dutch voice (fallback):', anyDutchVoice.name, anyDutchVoice.lang);
+      return anyDutchVoice;
+    }
+
+    // Log available voices for debugging
+    console.warn('⚠️ No Dutch voice found. Available voices:', voices.map(v => `${v.name} (${v.lang})`));
+    return null;
+  }, [isSupported]);
+
   const speak = useCallback(
     async (text: string, id: string, options: TTSOptions = {}) => {
       if (!isSupported) {
@@ -28,14 +78,14 @@ export const useTTS = () => {
 
       const utterance = new SpeechSynthesisUtterance(text);
 
-      // Get Dutch voices
-      const voices = synth.getVoices();
-      const dutchVoice = voices.find((v) => v.lang === 'nl-NL') || voices.find((v) => v.lang.startsWith('nl'));
+      // FORCE Dutch voice
+      const dutchVoice = await getDutchVoice();
       if (dutchVoice) {
         utterance.voice = dutchVoice;
       }
 
-      utterance.lang = options.lang || 'nl-NL';
+      // ALWAYS set language to Dutch, regardless of browser language
+      utterance.lang = 'nl-NL';
       utterance.rate = options.rate || 0.85;
       utterance.pitch = options.pitch || 1.0;
       utterance.volume = options.volume || 1.0;
@@ -62,7 +112,7 @@ export const useTTS = () => {
         synth.speak(utterance);
       });
     },
-    [currentId, isSupported]
+    [currentId, isSupported, getDutchVoice]
   );
 
   const stop = useCallback(() => {

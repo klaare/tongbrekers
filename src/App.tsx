@@ -7,6 +7,7 @@ import { SpreukenPage } from './pages/SpreukenPage';
 import { KanslozeCvPage } from './pages/KanslozeCvPage';
 import { FobieenPage } from './pages/FobieenPage';
 import { ExcuusExMachinaPage } from './pages/ExcuusExMachinaPage';
+import { DestructieveDraaiboeken } from './pages/DestructieveDraaiboeken';
 import { usePageMeta } from './hooks/usePageMeta';
 
 function AppContent() {
@@ -23,6 +24,7 @@ function AppContent() {
         <Route path="/kansloze-cv" element={<KanslozeCvPage />} />
         <Route path="/fobieen" element={<FobieenPage />} />
         <Route path="/excuses" element={<ExcuusExMachinaPage />} />
+        <Route path="/draaiboeken" element={<DestructieveDraaiboeken />} />
       </Routes>
     </>
   );

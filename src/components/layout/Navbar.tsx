@@ -102,6 +102,20 @@ export const Navbar = () => {
             >
               🙏 Excuses
             </Link>
+            <Link
+              to="/draaiboeken"
+              className={`
+                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                border-2 transition-all
+                ${
+                  isActive('/draaiboeken')
+                    ? 'bg-slate-700 text-white border-slate-700'
+                    : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                }
+              `}
+            >
+              💣 Draaiboeken
+            </Link>
           </div>
         </div>
       </div>

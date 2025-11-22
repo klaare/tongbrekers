@@ -25,6 +25,14 @@ export interface Excuus {
   created_at: string;
 }
 
+export interface Draaiboek {
+  id: string;
+  taak: string;
+  draaiboek: string;
+  moeilijkheidsgraad: 'lichte-mislukking' | 'gure-ramp' | 'volledige-catastrofe';
+  created_at: string;
+}
+
 export interface ApiKeyConfig {
   key: string | null;
   isValid: boolean;

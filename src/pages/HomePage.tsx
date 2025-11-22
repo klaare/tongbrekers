@@ -133,6 +133,26 @@ export const HomePage = () => {
               Genereer excuus →
             </div>
           </Link>
+
+          {/* Destructieve Draaiboeken Card */}
+          <Link
+            to="/draaiboeken"
+            className="group bg-gradient-to-br from-slate-800 to-gray-900 p-8 rounded-lg border-4 border-slate-700 hover:border-red-500 transition-all hover:scale-105 shadow-xl"
+          >
+            <div className="text-6xl mb-4">💣</div>
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Destructieve Draaiboeken
+            </h2>
+            <p className="text-slate-200 mb-4">
+              Professioneel ogende stappenplannen die er logisch uitzien maar onvermijdelijk leiden tot catastrofe.
+            </p>
+            <div className="text-slate-300 text-sm italic">
+              "Stap 1: Lokaliseer de koffiemachine... Stap 8: Informeer dat de brand 'normaal' is..."
+            </div>
+            <div className="mt-6 text-white font-bold group-hover:translate-x-2 transition-transform">
+              Genereer draaiboek →
+            </div>
+          </Link>
         </div>
 
         <footer className="text-center mt-20 text-ink-faded text-sm">

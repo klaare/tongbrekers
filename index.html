@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-gedreven tongbreker-generator met audio en share-functionaliteit">
+    <title>🔥 Tering Tongbrekers</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">🔥 Tering Tongbrekers 🔥</h1>
+            <p class="subtitle">AI-gedreven tongbreker chaos</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Generate Button -->
+            <div class="generate-section">
+                <button id="generateBtn" class="generate-btn">
+                    <span class="btn-text">Genereer Tering Tongbreker</span>
+                    <span class="btn-loader" style="display: none;">🔄 Taal aan het verknopen...</span>
+                </button>
+            </div>
+
+            <!-- API Key Input (if not set) -->
+            <div id="apiKeySection" class="api-key-section" style="display: none;">
+                <p class="api-key-info">⚠️ Gemini API key nodig</p>
+                <input
+                    type="text"
+                    id="apiKeyInput"
+                    class="api-key-input"
+                    placeholder="Plak je Gemini API key hier..."
+                >
+                <button id="saveApiKeyBtn" class="save-api-key-btn">Opslaan</button>
+                <p class="api-key-help">
+                    Gratis API key krijgen:
+                    <a href="https://makersuite.google.com/app/apikey" target="_blank">makersuite.google.com</a>
+                </p>
+            </div>
+
+            <!-- Recent Tongbrekers -->
+            <section class="recent-section">
+                <h2 class="recent-title">— RECENT —</h2>
+                <div id="tongbrekersList" class="tongbrekers-list">
+                    <p class="empty-state">Nog geen tongbrekers gegenereerd. Klik op de knop hierboven! 👆</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Gemaakt met 🤖 Gemini AI</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

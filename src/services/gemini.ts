@@ -102,7 +102,7 @@ export const geminiService = {
       }
 
       const data = await response.json();
-console.log(data);
+
       if (data.candidates && data.candidates.length > 0) {
         const candidate = data.candidates[0];
         if (

@@ -59,17 +59,21 @@ export const CondoleanceItem = ({ condoleance }: CondoleanceItemProps) => {
   };
 
   return (
-    <div className="bg-background-surface rounded-xl p-6 shadow-xl hover:bg-background-hover hover:-translate-y-1 transition-all duration-300 animate-slide-in relative">
-      <p className="text-white text-lg leading-relaxed mb-4">{condoleance.text}</p>
+    <div className="bg-paper-aged border-2 border-ink rounded-lg p-6 shadow-lg hover:shadow-xl hover:border-accent transition-all duration-300 animate-slide-in relative">
+      <p className="text-ink text-base leading-relaxed mb-4 font-serif italic">
+        {condoleance.text}
+      </p>
       <div className="flex items-center justify-between">
-        <span className="text-gray-400 text-sm">{formatDate(condoleance.created_at)}</span>
+        <span className="text-ink-faded text-xs uppercase tracking-wide">
+          {formatDate(condoleance.created_at)}
+        </span>
         <div className="flex gap-2">
           <button
             onClick={handlePlay}
             disabled={!ttsSupported}
             className={`
-              px-4 py-2 text-2xl rounded-lg border border-gray-700
-              bg-background hover:bg-background-hover hover:border-primary
+              px-3 py-2 text-xl rounded border-2 border-ink
+              bg-paper hover:bg-paper-dark hover:border-accent-border
               transition-all duration-200 hover:scale-110 active:scale-95
               ${!ttsSupported ? 'opacity-40 cursor-not-allowed' : ''}
             `}
@@ -79,7 +83,7 @@ export const CondoleanceItem = ({ condoleance }: CondoleanceItemProps) => {
           </button>
           <button
             onClick={handleShare}
-            className="px-4 py-2 text-2xl rounded-lg border border-gray-700 bg-background hover:bg-background-hover hover:border-primary transition-all duration-200 hover:scale-110 active:scale-95"
+            className="px-3 py-2 text-xl rounded border-2 border-ink bg-paper hover:bg-paper-dark hover:border-accent-border transition-all duration-200 hover:scale-110 active:scale-95"
             title={shareSupported ? 'Delen' : 'Kopieer'}
           >
             {shareSupported ? '📤' : '📋'}
@@ -88,7 +92,7 @@ export const CondoleanceItem = ({ condoleance }: CondoleanceItemProps) => {
       </div>
 
       {notification && (
-        <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-green-500 text-black px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap animate-slide-in">
+        <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-accent text-paper px-4 py-2 rounded font-semibold text-sm whitespace-nowrap animate-slide-in z-10">
           {notification}
         </div>
       )}

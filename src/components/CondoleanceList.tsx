@@ -8,8 +8,8 @@ interface CondoleanceListProps {
 export const CondoleanceList = ({ condoleances }: CondoleanceListProps) => {
   if (condoleances.length === 0) {
     return (
-      <div className="text-center py-16">
-        <p className="text-gray-400 italic">
+      <div className="text-center py-16 border-2 border-dashed border-ink-faded rounded-lg">
+        <p className="text-ink-light italic text-lg">
           Nog geen condoleances gegenereerd. Klik op de knop hierboven! 👆
         </p>
       </div>

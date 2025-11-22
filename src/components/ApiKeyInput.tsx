@@ -28,8 +28,8 @@ export const ApiKeyInput = ({ onSave }: ApiKeyInputProps) => {
   };
 
   return (
-    <div className="bg-background-surface border-2 border-yellow-500 rounded-xl p-6 mb-8 animate-slide-in">
-      <p className="text-yellow-500 font-semibold mb-4">⚠️ Gemini API key nodig</p>
+    <div className="bg-paper-aged border-4 border-accent-border rounded-lg p-6 mb-8 animate-slide-in shadow-lg">
+      <p className="text-accent font-bold mb-4 text-lg uppercase tracking-wide">⚠️ Gemini API key nodig</p>
       <input
         type="text"
         value={apiKey}
@@ -39,22 +39,22 @@ export const ApiKeyInput = ({ onSave }: ApiKeyInputProps) => {
         }}
         onKeyDown={(e) => e.key === 'Enter' && handleSave()}
         placeholder="Plak je Gemini API key hier..."
-        className="w-full px-4 py-3 bg-background rounded-lg border border-gray-700 text-white focus:border-primary focus:outline-none mb-3"
+        className="w-full px-4 py-3 bg-paper rounded-lg border-2 border-ink text-ink focus:border-accent-border focus:outline-none mb-3 font-mono"
       />
-      {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+      {error && <p className="text-red-800 text-sm mb-3 font-semibold">{error}</p>}
       <button
         onClick={handleSave}
-        className="w-full px-4 py-3 bg-yellow-500 text-background font-semibold rounded-lg hover:bg-yellow-400 transition-colors"
+        className="w-full px-4 py-3 bg-accent border-2 border-ink text-paper font-bold rounded-lg hover:bg-accent-vintage transition-colors uppercase tracking-wide"
       >
         Opslaan
       </button>
-      <p className="text-gray-400 text-sm mt-4">
+      <p className="text-ink-faded text-sm mt-4">
         Gratis API key krijgen:{' '}
         <a
           href="https://makersuite.google.com/app/apikey"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-primary hover:underline"
+          className="text-accent-border hover:underline font-semibold"
         >
           makersuite.google.com
         </a>

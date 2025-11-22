@@ -7,8 +7,8 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-paper-aged border-b-2 border-ink">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex items-center justify-between gap-4 py-3 min-h-16">
           {/* Logo/Brand */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-ink font-headline text-2xl hover:text-accent transition-colors">
@@ -17,11 +17,11 @@ export const Navbar = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="flex gap-1 flex-wrap">
+          <div className="flex gap-1 flex-wrap justify-end">
             <Link
               to="/tongbrekers"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/tongbrekers')
@@ -35,7 +35,7 @@ export const Navbar = () => {
             <Link
               to="/condoleances"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/condoleances')
@@ -49,7 +49,7 @@ export const Navbar = () => {
             <Link
               to="/spreuken"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/spreuken')
@@ -63,7 +63,7 @@ export const Navbar = () => {
             <Link
               to="/kansloze-cv"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/kansloze-cv')
@@ -77,7 +77,7 @@ export const Navbar = () => {
             <Link
               to="/fobieen"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/fobieen')
@@ -91,7 +91,7 @@ export const Navbar = () => {
             <Link
               to="/excuses"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/excuses')
@@ -105,7 +105,7 @@ export const Navbar = () => {
             <Link
               to="/draaiboeken"
               className={`
-                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                 border-2 transition-all
                 ${
                   isActive('/draaiboeken')

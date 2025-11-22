@@ -5,6 +5,7 @@ import { TongbrekersPage } from './pages/TongbrekersPage';
 import { CondoleancesPage } from './pages/CondoleancesPage';
 import { SpreukenPage } from './pages/SpreukenPage';
 import { KanslozeCvPage } from './pages/KanslozeCvPage';
+import { FobieenPage } from './pages/FobieenPage';
 import { usePageMeta } from './hooks/usePageMeta';
 
 function AppContent() {
@@ -19,6 +20,7 @@ function AppContent() {
         <Route path="/condoleances" element={<CondoleancesPage />} />
         <Route path="/spreuken" element={<SpreukenPage />} />
         <Route path="/kansloze-cv" element={<KanslozeCvPage />} />
+        <Route path="/fobieen" element={<FobieenPage />} />
       </Routes>
     </>
   );

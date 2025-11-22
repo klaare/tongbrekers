@@ -10,6 +10,13 @@ export interface Tongbreker {
   created_at: string;
 }
 
+export interface Fobie {
+  id: string;
+  naam: string;
+  beschrijving: string;
+  created_at: string;
+}
+
 export interface ApiKeyConfig {
   key: string | null;
   isValid: boolean;

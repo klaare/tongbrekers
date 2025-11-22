@@ -74,6 +74,20 @@ export const Navbar = () => {
             >
               📄 Kansloze CV
             </Link>
+            <Link
+              to="/fobieen"
+              className={`
+                px-6 py-2 font-serif font-bold uppercase tracking-wider text-sm
+                border-2 transition-all
+                ${
+                  isActive('/fobieen')
+                    ? 'bg-teal-600 text-white border-teal-600'
+                    : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                }
+              `}
+            >
+              😰 Fobieën
+            </Link>
           </div>
         </div>
       </div>

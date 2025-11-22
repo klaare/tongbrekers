@@ -36,7 +36,7 @@ export const tongbrekerService = {
       throw new Error('API key is required');
     }
 
-    const model = 'gemini-1.5-flash';
+    const model = import.meta.env.VITE_GEMINI_MODEL || 'gemini-2.5-flash';
     const url = `${GEMINI_API_BASE}/models/${model}:generateContent?key=${apiKey}`;
 
     const requestBody = {
@@ -53,7 +53,9 @@ export const tongbrekerService = {
         temperature: 1.2,
         topK: 40,
         topP: 0.95,
-        maxOutputTokens: 200,
+        thinkingConfig: {
+          thinkingBudget: 0
+        }
       },
       safetySettings: [
         {

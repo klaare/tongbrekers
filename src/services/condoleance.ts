@@ -33,7 +33,7 @@ Voorbeeldstijl:
 const USER_PROMPT = `Genereer 1 absurd, satirisch condoleancebericht in krantstijl.
 Maak het ongemakkelijk, misplaatst of totaal inadequaat, maar blijf binnen de grenzen van satire.`;
 
-export const geminiService = {
+export const condoleanceService = {
   validateApiKey: (apiKey: string): boolean => {
     if (!apiKey || typeof apiKey !== 'string') {
       return false;
@@ -47,7 +47,7 @@ export const geminiService = {
       throw new Error('API key is required');
     }
 
-    const model = 'gemini-1.5-flash';
+    const model = import.meta.env.VITE_GEMINI_MODEL || 'gemini-2.5-flash';
     const url = `${GEMINI_API_BASE}/models/${model}:generateContent?key=${apiKey}`;
 
     const requestBody = {
@@ -64,7 +64,9 @@ export const geminiService = {
         temperature: 1.3,
         topK: 50,
         topP: 0.95,
-        maxOutputTokens: 300,
+        thinkingConfig: {
+          thinkingBudget: -1
+        }
       },
       safetySettings: [
         {
@@ -77,7 +79,7 @@ export const geminiService = {
         },
         {
           category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-          threshold: 'BLOCK_MEDIUM_AND_ABOVE',
+          threshold: 'BLOCK_ONLY_HIGH',
         },
         {
           category: 'HARM_CATEGORY_DANGEROUS_CONTENT',

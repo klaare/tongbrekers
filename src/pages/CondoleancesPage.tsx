@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Condoleance } from '../types';
 import { generateId } from '../utils/storage';
-import { geminiService } from '../services/gemini';
+import { condoleanceService } from '../services/condoleance.ts';
 import { ApiKeyInput } from '../components/ApiKeyInput';
 import { GenerateButton } from '../components/GenerateButton';
 import { CondoleanceList } from '../components/CondoleanceList';
@@ -60,7 +60,7 @@ export const CondoleancesPage = () => {
     setIsGenerating(true);
 
     try {
-      const text = await geminiService.generateCondoleance(activeApiKey);
+      const text = await condoleanceService.generateCondoleance(activeApiKey);
 
       const condoleance: Condoleance = {
         id: generateId(),

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { geminiService } from '../services/gemini';
+import { condoleanceService } from '../services/condoleance.ts';
 
 interface ApiKeyInputProps {
   onSave: (apiKey: string) => void;
@@ -17,7 +17,7 @@ export const ApiKeyInput = ({ onSave }: ApiKeyInputProps) => {
       return;
     }
 
-    if (!geminiService.validateApiKey(trimmed)) {
+    if (!condoleanceService.validateApiKey(trimmed)) {
       setError('Ongeldige API key formaat. Gemini keys beginnen met "AIza"');
       return;
     }

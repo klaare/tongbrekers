@@ -76,7 +76,7 @@ tongbrekers/
 │   │   ├── useShare.ts
 │   │   └── useTTS.ts
 │   ├── services/            # API services
-│   │   └── gemini.ts
+│   │   └── condoleance.ts
 │   ├── types/               # TypeScript types
 │   │   └── index.ts
 │   ├── utils/               # Utility functions
@@ -129,7 +129,7 @@ theme: {
 
 ### AI Prompt
 
-Pas de system prompt aan in `src/services/gemini.ts` om de stijl van tongbrekers te wijzigen.
+Pas de system prompt aan in `src/services/condoleance.ts` om de stijl van tongbrekers te wijzigen.
 
 ### TTS Settings
 

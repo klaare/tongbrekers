@@ -1,7 +1,10 @@
 {
-  "name": "temp-project",
+  "name": "tering-tongbrekers",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "AI-gedreven Nederlandse tongbreker generator met Gemini AI",
+  "author": "",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import type { Tongbreker } from '../types';
+import { createShareUrl } from '../utils/url';
 
 export const useShare = () => {
   const isSupported = 'share' in navigator;
@@ -32,12 +33,15 @@ export const useShare = () => {
 
   const share = useCallback(
     async (tongbreker: Tongbreker): Promise<{ success: boolean; method: 'share' | 'copy' }> => {
+      // Create shareable URL with tongbreker encoded
+      const shareUrl = createShareUrl(tongbreker);
+
       if (isSupported) {
         try {
           await navigator.share({
             title: '🔥 Tering Tongbreker',
             text: tongbreker.text,
-            url: window.location.href,
+            url: shareUrl,
           });
           return { success: true, method: 'share' };
         } catch (error: any) {
@@ -48,8 +52,9 @@ export const useShare = () => {
         }
       }
 
-      // Fallback to clipboard
-      const success = await copyToClipboard(tongbreker.text);
+      // Fallback to clipboard - copy the URL with the tongbreker
+      const shareText = `${tongbreker.text}\n\n${shareUrl}`;
+      const success = await copyToClipboard(shareText);
       return { success, method: 'copy' };
     },
     [isSupported]

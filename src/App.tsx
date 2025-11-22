@@ -7,6 +7,7 @@ import { GenerateButton } from './components/GenerateButton';
 import { TongbrekerList } from './components/TongbrekerList';
 import { Notification } from './components/Notification';
 import { useLocalStorage } from './hooks/useLocalStorage';
+import { getTongbrekerFromUrl, clearUrlParams } from './utils/url';
 
 function App() {
   const [tongbrekers, setTongbrekers] = useLocalStorage<Tongbreker[]>(
@@ -24,6 +25,25 @@ function App() {
   // Get API key from environment or localStorage
   const envApiKey = import.meta.env.VITE_GEMINI_API_KEY;
   const activeApiKey = apiKey || envApiKey;
+
+  // Check for shared tongbreker in URL on mount
+  useEffect(() => {
+    const sharedTongbreker = getTongbrekerFromUrl();
+    if (sharedTongbreker) {
+      // Add to the beginning of the list
+      setTongbrekers((prev) => {
+        // Check if it's already in the list (avoid duplicates)
+        const exists = prev.some((t) => t.text === sharedTongbreker.text);
+        if (exists) {
+          return prev;
+        }
+        return [sharedTongbreker, ...prev].slice(0, 50);
+      });
+      // Clear URL params for clean URL
+      clearUrlParams();
+      showNotification('Gedeelde tongbreker geladen! 🔥', 'success');
+    }
+  }, []);
 
   // Only show API key input if no key is available (env or localStorage)
   useEffect(() => {

@@ -88,9 +88,10 @@ export const DraaiboekItem = ({ draaiboek, onDelete }: DraaiboekItemProps) => {
             {graadInfo.label}
           </span>
         </div>
-        <div className="text-slate-300 text-sm leading-relaxed prose prose-sm prose-invert max-w-none
+        <div className="text-slate-300 text-sm prose prose-sm prose-invert max-w-none
           prose-strong:text-slate-100 prose-strong:font-bold
-          prose-p:my-2 prose-p:text-slate-300">
+          prose-p:my-4 prose-p:text-slate-300 prose-p:leading-relaxed
+          [&>p]:mb-4 [&>p]:block">
           <ReactMarkdown>{draaiboek.draaiboek}</ReactMarkdown>
         </div>
       </div>

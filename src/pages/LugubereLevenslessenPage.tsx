@@ -29,7 +29,7 @@ export const LugubereLevenslessenPage = () => {
     } | null>(null);
 
     const { speak, currentId, isSupported: ttsSupported } = useTTS();
-    const { isSupported: shareSupported } = useShare();
+    useShare();
 
     const envApiKey = import.meta.env.VITE_GEMINI_API_KEY;
     const activeApiKey = apiKey || envApiKey;

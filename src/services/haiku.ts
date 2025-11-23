@@ -1,16 +1,6 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 
-export async function generateHaiku(apiKey: string, extraHopeloosheid: boolean = false): Promise<string> {
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: 'gemini-pro',
-    generationConfig: {
-      temperature: 1.2,
-      maxOutputTokens: 150,
-    }
-  });
-
-  const systemPrompt = `# 🍂 SYSTEM PROMPT — Hopeloze Haiku's
+const SYSTEM_PROMPT = `# 🍂 SYSTEM PROMPT — Hopeloze Haiku's
 
 ## ROL
 Je bent een melancholische, defaitistische dichter die gespecialiseerd is in hopeloos pessimistische haiku's.
@@ -34,10 +24,6 @@ Genereer één **volledig nieuwe haiku** die:
 - Geen rijmdwang.
 - Haiku bestaat **altijd uit drie regels**.
 
-${extraHopeloosheid ? `## EXTRA HOPELOOSHEID
-Verhoog de intensiteit van de melancholie en hopeloosheid. Maak het nog somberder, nog futiler, nog absurder.
-De wanhoop moet voelbaar zijn in elke lettergreep.` : ''}
-
 ## VOORBEELDEN
 - "Koude koffie weer
    mijn motivatie verdampt
@@ -52,15 +38,106 @@ De wanhoop moet voelbaar zijn in elke lettergreep.` : ''}
 ## RESULTAAT
 Lever uitsluitend een haiku in drie regels, zonder titel, uitleg of extra opmerkingen.`;
 
-  const prompt = "Genereer één hopeloze haiku volgens de system prompt.";
+const EXTRA_HOPELOOSHEID_PROMPT = `
 
-  const result = await model.generateContent([
-    { text: systemPrompt },
-    { text: prompt }
-  ]);
+## EXTRA HOPELOOSHEID
+Verhoog de intensiteit van de melancholie en hopeloosheid. Maak het nog somberder, nog futiler, nog absurder.
+De wanhoop moet voelbaar zijn in elke lettergreep.`;
 
-  const response = result.response;
-  const text = response.text();
+export async function generateHaiku(apiKey: string, extraHopeloosheid: boolean = false): Promise<string> {
+  if (!apiKey) {
+    throw new Error('API key is required');
+  }
 
-  return text.trim();
+  const model = import.meta.env.VITE_GEMINI_MODEL || 'gemini-2.5-flash';
+  const url = `${GEMINI_API_BASE}/models/${model}:generateContent?key=${apiKey}`;
+
+  const systemPromptWithOptions = extraHopeloosheid
+    ? SYSTEM_PROMPT + EXTRA_HOPELOOSHEID_PROMPT
+    : SYSTEM_PROMPT;
+
+  const userPrompt = "Genereer één hopeloze haiku volgens de system prompt.";
+
+  const requestBody = {
+    contents: [
+      {
+        parts: [
+          {
+            text: `${systemPromptWithOptions}\n\n${userPrompt}`,
+          },
+        ],
+      },
+    ],
+    generationConfig: {
+      temperature: 1.2,
+      topK: 40,
+      topP: 0.95,
+      maxOutputTokens: 150,
+      thinkingConfig: {
+        thinkingBudget: 0
+      }
+    },
+    safetySettings: [
+      {
+        category: 'HARM_CATEGORY_HARASSMENT',
+        threshold: 'BLOCK_NONE',
+      },
+      {
+        category: 'HARM_CATEGORY_HATE_SPEECH',
+        threshold: 'BLOCK_NONE',
+      },
+      {
+        category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+        threshold: 'BLOCK_NONE',
+      },
+      {
+        category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+        threshold: 'BLOCK_NONE',
+      },
+    ],
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error('Gemini API error:', errorData);
+
+      if (response.status === 401) {
+        throw new Error('Ongeldige API key. Check je key en probeer opnieuw.');
+      } else if (response.status === 429) {
+        throw new Error('Te veel requests. Wacht even en probeer opnieuw.');
+      } else {
+        throw new Error(
+          `API fout: ${response.status} - ${errorData.error?.message || 'Onbekende fout'}`
+        );
+      }
+    }
+
+    const data = await response.json();
+
+    if (data.candidates && data.candidates.length > 0) {
+      const candidate = data.candidates[0];
+      if (
+        candidate.content &&
+        candidate.content.parts &&
+        candidate.content.parts.length > 0
+      ) {
+        const text = candidate.content.parts[0].text.trim();
+        return text;
+      }
+    }
+
+    throw new Error('Geen haiku gegenereerd. Zelfs de AI verloor de hoop...');
+  } catch (error) {
+    console.error('Error generating haiku:', error);
+    throw error;
+  }
 }

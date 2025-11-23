@@ -15,6 +15,7 @@ export const Navbar = () => {
     { to: '/fobieen', emoji: '😰', label: 'Fobieën', activeColor: 'bg-teal-600 text-white border-teal-600' },
     { to: '/excuses', emoji: '🙏', label: 'Excuses', activeColor: 'bg-amber-600 text-white border-amber-600' },
     { to: '/draaiboeken', emoji: '💣', label: 'Draaiboeken', activeColor: 'bg-slate-700 text-white border-slate-700' },
+    { to: '/haikus', emoji: '🍂', label: 'Haiku\'s', activeColor: 'bg-gray-600 text-white border-gray-600' },
   ];
 
   return (

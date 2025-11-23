@@ -153,6 +153,26 @@ export const HomePage = () => {
               Genereer draaiboek →
             </div>
           </Link>
+
+          {/* Hopeloze Haiku's Card */}
+          <Link
+            to="/haikus"
+            className="group bg-gradient-to-br from-gray-200 to-gray-300 p-8 rounded-lg border-4 border-gray-400 hover:border-gray-500 transition-all hover:scale-105 shadow-xl"
+          >
+            <div className="text-6xl mb-4">🍂</div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">
+              Hopeloze Haiku's
+            </h2>
+            <p className="text-gray-700 mb-4">
+              Melancholisch-absurde haiku's vol hopeloosheid, futiel verlangen en alledaagse teleurstelling.
+            </p>
+            <div className="text-gray-600 text-sm italic font-serif">
+              "Koude koffie weer / mijn motivatie verdampt / nog voor de ochtend"
+            </div>
+            <div className="mt-6 text-gray-800 font-bold group-hover:translate-x-2 transition-transform">
+              Genereer haiku →
+            </div>
+          </Link>
         </div>
 
         <footer className="text-center mt-20 text-ink-faded text-sm">

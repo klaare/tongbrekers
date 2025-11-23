@@ -33,6 +33,13 @@ export interface Draaiboek {
   created_at: string;
 }
 
+export interface Haiku {
+  id: string;
+  text: string;
+  extraHopeloosheid: boolean;
+  created_at: string;
+}
+
 export interface ApiKeyConfig {
   key: string | null;
   isValid: boolean;

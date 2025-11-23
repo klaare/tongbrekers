@@ -9,6 +9,7 @@ import { FobieenPage } from './pages/FobieenPage';
 import { ExcuusExMachinaPage } from './pages/ExcuusExMachinaPage';
 import { DestructieveDraaiboeken } from './pages/DestructieveDraaiboeken';
 import { HopelozeHaikusPage } from './pages/HopelozeHaikusPage';
+import { LugubereLevenslessenPage } from './pages/LugubereLevenslessenPage';
 import { usePageMeta } from './hooks/usePageMeta';
 
 function AppContent() {
@@ -27,6 +28,7 @@ function AppContent() {
         <Route path="/excuses" element={<ExcuusExMachinaPage />} />
         <Route path="/draaiboeken" element={<DestructieveDraaiboeken />} />
         <Route path="/haikus" element={<HopelozeHaikusPage />} />
+        <Route path="/lugubere-levenslessen" element={<LugubereLevenslessenPage />} />
       </Routes>
     </>
   );

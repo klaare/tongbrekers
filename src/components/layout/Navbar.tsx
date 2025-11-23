@@ -16,6 +16,7 @@ export const Navbar = () => {
     { to: '/excuses', emoji: '🙏', label: 'Excuses', activeColor: 'bg-amber-600 text-white border-amber-600' },
     { to: '/draaiboeken', emoji: '💣', label: 'Draaiboeken', activeColor: 'bg-slate-700 text-white border-slate-700' },
     { to: '/haikus', emoji: '🍂', label: 'Haiku\'s', activeColor: 'bg-gray-600 text-white border-gray-600' },
+    { to: '/lugubere-levenslessen', emoji: '💀', label: 'Levenslessen', activeColor: 'bg-slate-900 text-red-100 border-red-900' },
   ];
 
   return (
@@ -53,10 +54,9 @@ export const Navbar = () => {
                 className={`
                   px-4 py-2 font-serif font-bold uppercase tracking-wider text-xs
                   border-2 transition-all
-                  ${
-                    isActive(link.to)
-                      ? link.activeColor
-                      : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                  ${isActive(link.to)
+                    ? link.activeColor
+                    : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
                   }
                 `}
               >
@@ -78,10 +78,9 @@ export const Navbar = () => {
                   className={`
                     px-4 py-3 font-serif font-bold uppercase tracking-wider text-sm
                     border-2 transition-all
-                    ${
-                      isActive(link.to)
-                        ? link.activeColor
-                        : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
+                    ${isActive(link.to)
+                      ? link.activeColor
+                      : 'bg-transparent text-ink border-ink hover:bg-ink hover:text-paper'
                     }
                   `}
                 >

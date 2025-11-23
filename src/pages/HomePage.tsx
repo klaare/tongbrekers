@@ -173,6 +173,26 @@ export const HomePage = () => {
               Genereer haiku →
             </div>
           </Link>
+
+          {/* Lugubere Levenslessen Card */}
+          <Link
+            to="/lugubere-levenslessen"
+            className="group bg-gradient-to-br from-slate-900 to-black p-8 rounded-lg border-4 border-slate-800 hover:border-red-900 transition-all hover:scale-105 shadow-xl"
+          >
+            <div className="text-6xl mb-4">💀</div>
+            <h2 className="text-3xl font-bold text-slate-200 mb-3">
+              Lugubere Levenslessen
+            </h2>
+            <p className="text-slate-400 mb-4">
+              Cynische, zwartgallige wijsheden die technisch waar zijn maar moreel verwerpelijk of deprimerend.
+            </p>
+            <div className="text-slate-500 text-sm italic font-serif">
+              "De bodem van de put is de enige plek waar men niet dieper kan vallen..."
+            </div>
+            <div className="mt-6 text-slate-200 font-bold group-hover:translate-x-2 transition-transform">
+              Ontvang levensles →
+            </div>
+          </Link>
         </div>
 
         <footer className="text-center mt-20 text-ink-faded text-sm">

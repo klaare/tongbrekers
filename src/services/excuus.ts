@@ -39,10 +39,6 @@ Het excuus moet:
 ## RESULTAAT
 Lever uitsluitend het excuus, zonder meta-commentaar, uitleg of alternatieven.`;
 
-interface ExcuusResponse {
-  excuus: string;
-}
-
 export const excuusService = {
   validateApiKey: (apiKey: string): boolean => {
     if (!apiKey || typeof apiKey !== 'string') {
